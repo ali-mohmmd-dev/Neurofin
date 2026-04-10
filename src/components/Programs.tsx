@@ -1,50 +1,19 @@
 import Image from "next/image";
 import Link from "next/link"; // Recommended if using Next.js routing
-const solutions = [
-  {
-    img: "/assets/program (1).png",
-    title: "Foundation Program",
-    desc: "This is where your journey begins. We strip away the jargon and build your understanding from the ground up.",
-  },
-  {
-    img: "/assets/program (2).png",
-    title: "Future Skills Program",
-    desc: "Step into the future. This program is designed to liberate you from manual, repetitive work.",
-  },
-  {
-    img: "/assets/program (3).png",
-    title: "Applied Innovation Program",
-    desc: "This is a transformational year. You evolve from a user of technology to a creator of systems.",
-  },
-  {
-    img: "/assets/program (4).png",
-    title: "Advanced Program in AI, Fintech & Regtech",
-    desc: "For the seasoned professional, this is your leadership crucible. Dive deep into the most disruptive technologies shaping global finance.",
-  },
-  {
-    img: "/assets/program (5).png",
-    title: "Strategic Finance Program",
-    desc: "This program is for the visionary. Whether you are an entrepreneur or a business owner, we give you the lens to see your business with perfect clarity.",
-  },
-  {
-    img: "/assets/program (6).png",
-    title: "Strategic Finance Program",
-    desc: "This program is for the visionary. Whether you are an entrepreneur or a business owner, we give you the lens to see your business with perfect clarity.",
-  },
-];
+import { PROGRAMS } from "@/lib/constants";
 
 const Programs = () => {
   return (
     <section id="solutions" >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 text-center md:text-left">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-16">
-          Our Solutions
+          Our Programs
         </h2>
       </div>
       <div className="lined-container">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-3">
-            {solutions.map((s, i) => (
+            {PROGRAMS.map((s, i) => (
               <div
                 key={i}
                 className="lined-cell p-8 flex flex-col border-collapse group  hover:bg-[linear-gradient(to_right,hsl(var(--primary)/0.03)_50%,hsl(var(--secondary)/0.02))] transition-all ease-in-out duration-900"
@@ -60,14 +29,32 @@ const Programs = () => {
                 <h3 className="text-lg font-semibold text-foreground mb-2">
                   {s.title}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                   {s.desc}
                 </p>
+                
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-medium border border-[hsl(var(--primary)/0.2)] text-[hsl(var(--primary))] bg-[hsl(var(--primary)/0.03)] transition-all duration-300 hover:bg-[hsl(var(--primary))] hover:text-white cursor-default">
+                    {s.level}
+                  </span>
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-medium border border-[hsl(var(--primary)/0.2)] text-[hsl(var(--primary))] bg-[hsl(var(--primary)/0.03)] transition-all duration-300 hover:bg-[hsl(var(--primary))] hover:text-white cursor-default">
+                    {s.duration}
+                  </span>
+                  {s.tags.map((tag, tagIndex) => (
+                    <span 
+                      key={tagIndex} 
+                      className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-medium border border-[hsl(var(--primary)/0.2)] text-[hsl(var(--primary))] bg-[hsl(var(--primary)/0.03)] transition-all duration-300 hover:bg-[hsl(var(--primary))] hover:text-white cursor-default"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                
                 
                 {/* Learn More Button */}
                 <div className="mt-auto">
                   <Link 
-                    href={`/solutions/${s.title.toLowerCase().replace(/ /g, '-')}`}
+                    href={`/programs/${s.slug}`}
                     className="inline-flex items-center text-sm font-medium  group"
                   >
                     Learn More

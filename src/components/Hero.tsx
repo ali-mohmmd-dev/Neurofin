@@ -30,7 +30,7 @@ const Hero = () => {
         
         <div className="mt-8 flex items-center justify-center gap-4 flex-wrap">
           <Link
-            href="/#solutions"
+            href="/programs"
             className="px-8 py-3 text-sm font-medium bg-primary text-primary-foreground rounded-full hover:opacity-90 transition-opacity"
           >
             Explore programs

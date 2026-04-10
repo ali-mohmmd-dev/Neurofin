@@ -16,11 +16,10 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
+          <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Home</Link>
           <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About</Link>
-          <Link href="/#solutions" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Solutions</Link>
-          <Link href="/#philosophy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Philosophy</Link>
-          <Link href="/#interface" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Interface</Link>
-          <Link href="/#advisors" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Advisors</Link>
+          <Link href="/programs" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Programs</Link>
+          <Link href="/careers" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Careers</Link>
         </div>
 
         <div className="hidden md:block">
@@ -39,11 +38,10 @@ const Navbar = () => {
 
       {mobileOpen && (
         <div className="md:hidden px-6 pb-6 flex flex-col gap-4 bg-background/95 backdrop-blur-xl">
+          <Link href="/" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>Home</Link>
           <Link href="/about" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>About</Link>
-          <Link href="/#solutions" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>Solutions</Link>
-          <Link href="/#philosophy" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>Philosophy</Link>
-          <Link href="/#interface" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>Interface</Link>
-          <Link href="/#advisors" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>Advisors</Link>
+          <Link href="/programs" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>Programs</Link>
+          <Link href="/careers" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>Careers</Link>
           <Link href="/contact" className="inline-block px-6 py-2.5 text-sm font-medium bg-foreground text-background rounded-full text-center" onClick={() => setMobileOpen(false)}>Get Started</Link>
         </div>
       )}
